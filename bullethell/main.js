@@ -7,7 +7,7 @@ function touches(a, b) {
 
 	return true;
 }//stolen code
-function convertToObj(pos,HBsize=20) {
+function convertToObj(pos,HBsize=10) {
 	return {x1:pos[0]-HBsize/2,x2:pos[0]+HBsize/2,y1:pos[1]-HBsize/2,y2:pos[1]+HBsize/2}
 }
 var todo=[]
@@ -149,19 +149,19 @@ setInterval(()=>{
 	canvas.width = 500;
 	context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
-	if (input.left) {pos[0]-=350*diff}
-	if (input.down) {pos[1]+=350*diff}
-	if (input.right) {pos[0]+=350*diff}
-	if (input.up) {pos[1]-=350*diff}
+	if (input.left) {pos[0]-=300*diff}
+	if (input.down) {pos[1]+=300*diff}
+	if (input.up)   {pos[1]-=300*diff}
+	if (input.right){pos[0]+=300*diff}
 	if (pos[0]<10) {pos[0]=10}
 	if (pos[1]<10) {pos[1]=10}
 	if (pos[0]>490) {pos[0]=490}
 	if (pos[1]>490) {pos[1]=490}
 	context.fillStyle = '#00f';
-    context.fillRect(pos[0]-10, pos[1]-10, 20, 20);
+    context.fillRect(pos[0]-5, pos[1]-5, 10, 10);
 	context.fillStyle = '#f00';
 	bullets.forEach((x)=>{
-		context.fillRect(x.pos[0]-10, x.pos[1]-10, 20, 20);
+		context.fillRect(x.pos[0]-5, x.pos[1]-5, 10, 10);
 	})
 },12)
 init()
